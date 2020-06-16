@@ -30,17 +30,17 @@ fmt.Println(ss)
 ```
 Available Formats:
 
-Hari               
-NamaHari           
-NamaHariDenganKoma 
-Minggu             
-NamaMinggu         
-Bulan              
-NamaBulan          
-Tahun              
-Pukul              
-PukulDenganDetik   
-Lokasi             
-LokasiDenganKoma   
-ZonaWaktu          
+tanggal.Hari               
+tanggal.NamaHari           
+tanggal.NamaHariDenganKoma 
+tanggal.Minggu             
+tanggal.NamaMinggu         
+tanggal.Bulan              
+tanggal.NamaBulan          
+tanggal.Tahun              
+tanggal.Pukul              
+tanggal.PukulDenganDetik   
+tanggal.Lokasi             
+tanggal.LokasiDenganKoma   
+tanggal.ZonaWaktu          
 ```
