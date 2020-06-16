@@ -18,18 +18,31 @@ if err != nil {
     log.Fatal(err)
 }
 
-// contoh cara baca struct. Note: Struct tidak memiliki jsons tags
+// contoh hasil struct. Note: Struct tidak memiliki json tags
 aa, _ := json.MarshalIndent(tgl, "", "  ")
 fmt.Println(string(aa))
+// {
+//     "Hari": 16,
+//     "NamaHari": "Selasa",
+//     "NamaHariDenganKoma": "Selasa,",
+//     "Bulan": 6,
+//     "NamaBulan": "Juni",
+//     "Tahun": 2020,
+//     "Pukul": "21:19",
+//     "PukulDenganDetik": "21:19:16",
+//     "Lokasi": "Jakarta",
+//     "LokasiDenganKoma": "Jakarta,",
+//     "Timezone": "WIB"
+// }
 
 // Dibawah ini cara custom formatting string
 // Formatting akan mengikuti urutan dari slice, dan separator untuk customize pemisah antar elemen
 format := []tanggal.Format{
     tanggal.LokasiDenganKoma, tanggal.Hari, tanggal.NamaBulan, tanggal.Tahun, tanggal.PukulDenganDetik, tanggal.ZonaWaktu,
 }
-
 ss := tgl.Format(" ", format)
 fmt.Println(ss)
+// Jakarta, 16 Juni 2020 21:19:16 WIB
 ```
 
 ```
