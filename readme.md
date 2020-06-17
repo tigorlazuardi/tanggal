@@ -13,6 +13,8 @@ Usage Example:
 ```go
 // tgl merupakan struct dan dapat digunakan untuk mengakses berbagai bagian dari tanggal tersetut.
 // lokasi dapat dikosongkan, dan kalau dikosongkan, format lokasi akan diabaikan sepenuhnya.
+// timezone mempengaruhi hasil waktu yang dipapar. WITA akan maju 1 jam didepan WIB,
+// dan demikian pula WIT dengan WITA
 tgl, err := tanggal.Papar(time.Now(), "Jakarta", tanggal.WIB)
 if err != nil {
     log.Fatal(err)
@@ -38,7 +40,12 @@ fmt.Println(string(aa))
 // Dibawah ini cara custom formatting string
 // Formatting akan mengikuti urutan dari slice, dan separator untuk customize pemisah antar elemen
 format := []tanggal.Format{
-    tanggal.LokasiDenganKoma, tanggal.Hari, tanggal.NamaBulan, tanggal.Tahun, tanggal.PukulDenganDetik, tanggal.ZonaWaktu,
+    tanggal.LokasiDenganKoma, 
+    tanggal.Hari, 
+    tanggal.NamaBulan, 
+    tanggal.Tahun, 
+    tanggal.PukulDenganDetik, 
+    tanggal.ZonaWaktu,
 }
 ss := tgl.Format(" ", format)
 fmt.Println(ss)
@@ -61,4 +68,11 @@ tanggal.PukulDenganDetik
 tanggal.Lokasi             
 tanggal.LokasiDenganKoma   
 tanggal.ZonaWaktu          
+```
+
+```
+Available Timezones:
+tanggal.WIB
+tanggal.WITA
+tanggal.WIT
 ```
