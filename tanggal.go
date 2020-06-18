@@ -27,7 +27,7 @@ const (
 	ZonaWaktu          Format = "zonaWaktu"
 )
 
-const WIB, WITA, WIT Timezone = "WIB", "WITA", "WIT"
+const WIB, WITA, WIT, NONE Timezone = "WIB", "WITA", "WIT", "NONE"
 
 type Tanggal struct {
 	Hari               uint8
@@ -72,7 +72,9 @@ func (t Tanggal) Format(separator string, formats []Format) string {
 				f = append(f, t.LokasiDenganKoma)
 			}
 		case ZonaWaktu:
-			f = append(f, t.Timezone)
+			if t.Timezone != "NONE" {
+				f = append(f, t.Timezone)
+			}
 		}
 	}
 	return strings.Join(f, separator)
@@ -165,6 +167,8 @@ func parseTimeZone(tz Timezone) (time.Duration, error) {
 		return time.Duration(8), nil
 	case WIT:
 		return time.Duration(9), nil
+	case NONE:
+		return 0, nil
 	default:
 		return time.Duration(0), errors.New(fmt.Sprintf("Failed to parse timezone. %s is not supported", tz))
 	}
