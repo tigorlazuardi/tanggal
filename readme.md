@@ -72,8 +72,8 @@ tanggal.ZonaWaktu
 
 ```
 Available Timezones:
-tanggal.WIB // UTC+7
+tanggal.WIB  // UTC+7
 tanggal.WITA // UTC+8
-tanggal.WIT // UTC+9
+tanggal.WIT  // UTC+9
 tanggal.None // UTC
 ```
