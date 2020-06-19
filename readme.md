@@ -14,7 +14,7 @@ Usage Example:
 // tgl merupakan struct dan dapat digunakan untuk mengakses berbagai bagian dari tanggal tersetut.
 // lokasi dapat dikosongkan, dan kalau dikosongkan, format lokasi akan diabaikan sepenuhnya.
 // timezone mempengaruhi hasil waktu yang dipapar. WITA akan maju 1 jam didepan WIB,
-// dan demikian pula WIT dengan WITA
+// dan demikian pula WIT dengan WITA. timezone NONE akan mengabaikan formatting.
 tgl, err := tanggal.Papar(time.Now(), "Jakarta", tanggal.WIB)
 if err != nil {
     log.Fatal(err)
@@ -72,7 +72,8 @@ tanggal.ZonaWaktu
 
 ```
 Available Timezones:
-tanggal.WIB
-tanggal.WITA
-tanggal.WIT
+tanggal.WIB // UTC+7
+tanggal.WITA // UTC+8
+tanggal.WIT // UTC+9
+tanggal.None // UTC
 ```
